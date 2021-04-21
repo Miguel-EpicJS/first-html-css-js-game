@@ -1,0 +1,13 @@
+const timer = document.getElementById('time')
+export let sec = 60;
+let counter = setInterval(function () {
+    if (sec >= 60) {
+        timer.innerHTML = sec % 60 < 10 ? `0${Math.floor(sec/60)}:0${sec % 60}` : `${Math.floor(sec/60)}:${sec % 60}`;
+    }else{
+        timer.innerHTML = sec % 60 < 10 ? '00:' + '0' + sec : '00:' + sec;
+    }
+    sec--;
+    if (sec < 0) {
+        clearInterval(counter);
+    }
+}, 1000);
